@@ -1,0 +1,47 @@
+class cola:
+    def __init__(self):
+        self.items=[]
+    def encolar(self,x):
+        self.items.append(x)
+    def desencolar(self):
+        try:
+            return self.items.pop(0)
+        except:
+            raise ValueError("La cola esta vacia")
+    def es_vacia(self):
+        return self.items==[]
+
+#main
+"""c=Cola()
+n=int(input("Ingrese la cantidad de numeros"))
+contador=0
+for i in range n:
+    if i%2==0:
+        c.encolar(i)
+        
+print(c)"""
+resp=""
+contador=0
+
+while resp!="s" or resp!="S":
+    print("menu")
+    print("(A)ñadir un numero")
+    print("numeros (p)ares")
+    print("(m)ostrar cantidad de elementos")
+    print("(S)alir)")
+    resp=(input("Ingrese una opcion "))
+    if resp=="A" or resp=="a":
+        num=int("Ingrese un numero")
+        c.encolar(num)
+    if resp=="P" or resp=="p":
+        if num%2==0:
+            
+            contador+=1
+        
+        
+    if resp=="m" or resp=="M":
+        print(c)
+        print("El numero de pares es: ",contador)
+    if resp=="s" or resp=="S":
+        print("Gracias, vuelva pronto :)")
+        break
