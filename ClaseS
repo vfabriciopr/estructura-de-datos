@@ -1,0 +1,13 @@
+import os
+
+print("\Crear un archivo")
+print("=================")
+
+ DatosEntrenador="Registro.txt"
+ 
+archivo= open(DatosEntrenador,"w")
+archivo.write("Nombre\t\tEdad\t\tEspecialida\t\t")
+archivo.write("Fabricio\t\t19\t\tBasket\t\t")
+archivo.write("Tonka\t\t19\t\tEjercicio De Piernas\t\t")
+archivo.write("Bruno\t\t19\t\tDesconocido\t\t")
+archivo.write("Ignacio\t\t19\t\tCabello\t\t") 
