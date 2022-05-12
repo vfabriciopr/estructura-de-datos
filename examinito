@@ -1,0 +1,54 @@
+def cargarsocios(socios):
+    numero=int(input("Ingrese el numero de socio: (digite 0 para anular la operacion)"))
+    while numero!=0:
+        nombre=input("Nombre completo: ")
+        fecha=input("Fecha de ingreso: ")
+        cuota=input("Cuenta con su cuota pagada?(n/s) ")
+        socios[numero]=[nombre, fecha,cuota.lower()=="s"]
+        numero=int(input("Numero de socio"))
+    return socios
+
+def fecha(socios,fechaa,fechan):
+    for datos in socios.values():
+        if datos[1]==fechaa:
+            datos[1]=fechan
+        return socios
+
+def Nsocios(socios,nombre):
+    for numero, datos in socios.items():
+        if datos[0].lower()==nombre.lower():
+            return numero
+        return 0
+def mostrarlista(socio):
+    for numero, datos in socio.items():
+        print("Numero: ",numero)
+        print("Nombre: ",datos[0])
+        print("Ingreso: ",acomodarfecha(datos[1]))
+        if datos[2]:
+            print("Cuotas al dia :)")
+        else:
+            print("Pague sus deudas >:(")  
+def acomodarfecha(fecha):
+    return fecha[:2]+"/"+fecha[2:4]+"/"+fecha[4:]
+
+socio_activo={1:["Amanda Nuñez","17032009",True], 2:["Barbara Molina","17032009",True], 3:["Lautaro Campos","17032009", True]}
+
+print("Cargar socios")
+socio_activo=cargarsocios(socio_activo)
+
+print("La cantidad de socios del club es: ",len(socio_activo))
+
+print("Registro de pago de cuotas")
+numero=int(input("Numero de socio: "))
+socio_activo[numero][2]=True
+
+print("Fecha de ingreso")
+socio_activo=fecha(socio_activo,"130032018","14032018")
+
+print("Eliminar a socio")
+nombre=input("Nombre completo: ")
+numero=Nsocios(socio_activo,nombre)
+if numero in socio_activo:
+    del socio_activo[numero]
+    
+mostrarlista(socio_activo)
