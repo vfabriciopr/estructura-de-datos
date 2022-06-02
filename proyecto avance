@@ -1,0 +1,9 @@
+class Entrenador:
+    def __init__(self,usuario, nombre, edad, genero, especialidad, años_experiencia, contacto):
+        self.usuario = usuario
+        self.nombre = nombre
+        self.edad = edad
+        self.genero = genero
+        self.especialidad = especialidad
+        self.años_experiencia = años_experiencia
+        self.contacto = contacto
